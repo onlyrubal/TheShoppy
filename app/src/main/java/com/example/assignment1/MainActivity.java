@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     DatePickerDialog dobPicker;
     EditText editDate;
+    RadioButton rdDesk, rdLap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Setting up the radio buttons for selecting the type of computer
+
+        rdDesk = (RadioButton)findViewById(R.id.rdDesktop);
+        rdLap = (RadioButton) findViewById(R.id.rdLaptop);
+
+    }
+
+    public void RdComputerClicked(View view){
+
+        String computerSelected = "Computer Selected";
+        if(rdLap.isChecked()) {
+            computerSelected = "Laptop";
+        }
+        if(rdDesk.isChecked()){
+            computerSelected = "Desktop";
+        }
+
+        Toast.makeText(getApplicationContext(), computerSelected, Toast.LENGTH_SHORT).show();
     }
 
 
