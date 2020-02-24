@@ -72,7 +72,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:onClick="RdComputerClicked"
-            android:text="Desktop" />
+            android:text="Desktop"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/rdLaptop"
@@ -97,10 +98,11 @@
         app:layout_constraintTop_toBottomOf="@+id/provinces_list" />
 
     <ScrollView
-        android:id="@+id/svComputerTypes"
+        android:id="@+id/sv_laptop"
         android:layout_width="180dp"
         android:layout_height="264dp"
         android:layout_marginTop="28dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,19 +181,20 @@
     </ScrollView>
 
     <ScrollView
-        android:id="@+id/svDesktopTypes"
+        android:id="@+id/sv_desktop"
         android:layout_width="180dp"
         android:layout_height="264dp"
         android:layout_marginTop="24dp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.636"
-        app:layout_constraintStart_toEndOf="@+id/svComputerTypes"
+        app:layout_constraintStart_toEndOf="@+id/sv_laptop"
         app:layout_constraintTop_toBottomOf="@+id/rd_type_of_computer">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -218,7 +221,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="138dp"
-                android:layout_margin="10dp" >
+                android:layout_margin="10dp">
 
                 <ImageView
                     android:id="@+id/imageView5"
@@ -262,7 +265,7 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="111dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="44dp"
@@ -270,9 +273,9 @@
         android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/spn_brand_item"
-        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintHorizontal_bias="0.084"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/svComputerTypes" />
+        app:layout_constraintTop_toBottomOf="@+id/sv_laptop" />
 
     <Spinner
         android:id="@+id/spn_brand_item"
@@ -282,7 +285,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.924"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/svDesktopTypes" />
+        app:layout_constraintTop_toBottomOf="@+id/sv_desktop" />
 
     <TextView
         android:id="@+id/txtAddOns"
@@ -316,5 +319,78 @@
         android:onClick="onChkAddOnClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spn_brand_item" />
+
+    <RadioGroup
+        android:id="@+id/rd_laptop_type_of_peripherals"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAddOns"
+        app:layout_constraintVertical_bias="0.07999998">
+
+        <RadioButton
+            android:id="@+id/rd_cooling_mat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cooling Mat" />
+
+        <RadioButton
+            android:id="@+id/rd_usb_c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="USB C" />
+
+        <RadioButton
+            android:id="@+id/rd_laptop_stand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Laptop Stand" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rd_computer_type_of_peripheral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rd_laptop_type_of_peripherals"
+        app:layout_constraintVertical_bias="0.79">
+
+        <RadioButton
+            android:id="@+id/rd_web_cam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Web Cam" />
+
+        <RadioButton
+            android:id="@+id/rd_hard_drive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hard Drive" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnManipulate"
+        android:layout_width="124dp"
+        android:layout_height="37dp"
+        android:text="Manipulate"
+        android:onClick="onManipulateChecked"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.569"
+        app:layout_constraintStart_toEndOf="@+id/rd_computer_type_of_peripheral"
+        app:layout_constraintTop_toBottomOf="@+id/rd_laptop_type_of_peripherals" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
