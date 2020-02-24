@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     EditText editDate;
     RadioButton rdDesk, rdLap;
     Spinner spnBrand;
+    CheckBox chkSSD, chkPrinter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +97,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        // Initializing the CheckBoxes
+
+        chkPrinter = (CheckBox) findViewById(R.id.check_printer);
+        chkSSD = (CheckBox) findViewById(R.id.check_SSD);
     }
 
     public void RdComputerClicked(View view){
@@ -109,4 +117,12 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), computerSelected, Toast.LENGTH_SHORT).show();
     }
 
+    public void onChkAddOnClicked(View view) {
+        if(chkSSD.isChecked()){
+            Toast.makeText(getApplicationContext(), "SSD Selected", Toast.LENGTH_SHORT).show();
+        }
+        if(chkPrinter.isChecked()){
+            Toast.makeText(getApplicationContext(), "Printer Selected", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
