@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String[] BRANDS = new String[]{"Lenovo", "Dell", "HP"};
 
+    //Variable Declaration
     TextView txtNameOfPerson;
     DatePickerDialog dobPicker;
     EditText editDate;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     String peripheralSelected;
     String additionalPeripherals = "";
     ScrollView svDesktop, svLaptop;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.provinces_list);
         textView.setAdapter(adptProvinces);
 
+        // Setting up the Date Picker.
         editDate = (EditText) findViewById(R.id.date_of_purchase);
 
         editDate.setInputType(InputType.TYPE_NULL);
@@ -82,15 +85,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Setting up the radio buttons for selecting the type of computer
-
+        // Setting up the radio buttons references for Desktop and Computer Selection.
         rdDesk = (RadioButton)findViewById(R.id.rdDesktop);
         rdLap = (RadioButton) findViewById(R.id.rdLaptop);
 
-
-        // Setting up the Spinner to select the brand for the product.
-
+        // Setting up the Spinner Reference for product brand selectiont.
         spnBrand = (Spinner) findViewById(R.id.spn_brand_item);
+
+
         ArrayAdapter<String> adptBrands = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, BRANDS);
 
@@ -98,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
         spnBrand.setAdapter(adptBrands);
 
         // Setting up the on Click event listener for the spinner.
-
         spnBrand.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -112,20 +113,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Initializing the CheckBoxes
-
+        // Setting up the references for the check boxes.
         chkPrinter = (CheckBox) findViewById(R.id.check_printer);
         chkSSD = (CheckBox) findViewById(R.id.check_SSD);
 
 
         // Setting up the radio buttons for selecting the additional peripherals.
-
         rdCoolingMat = (RadioButton)findViewById(R.id.rd_cooling_mat);
         rdUsbC = (RadioButton)findViewById(R.id.rd_usb_c);
         rdLaptopStand = (RadioButton)findViewById(R.id.rd_laptop_stand);
         rdWebCam = (RadioButton)findViewById(R.id.rd_web_cam);
         rdHardDrive = (RadioButton)findViewById(R.id.rd_hard_drive);
-
         rdLaptopGroup = (RadioGroup) findViewById(R.id.rd_laptop_type_of_peripherals);
         rdDesktopGroup = (RadioGroup)findViewById(R.id.rd_computer_type_of_peripheral);
 
@@ -136,9 +134,9 @@ public class MainActivity extends AppCompatActivity {
         svLaptop = (ScrollView)findViewById(R.id.sv_laptop);
     }
 
+    // Implementing RdComputerClicked method.
     public void RdComputerClicked(View view){
         computerSelected = "Computer Selected";
-
         if(rdLap.isChecked()) {
             computerSelected = "Laptop";
             svLaptop.setVisibility(View.VISIBLE);
@@ -155,13 +153,11 @@ public class MainActivity extends AppCompatActivity {
 
             rdLaptopGroup.setVisibility(View.INVISIBLE);
             rdDesktopGroup.setVisibility(View.VISIBLE);
-
-
         }
-
         Toast.makeText(getApplicationContext(), computerSelected, Toast.LENGTH_SHORT).show();
     }
 
+    //Implementing onChkAddOnClicked method.
     public void onChkAddOnClicked(View view) {
         if(chkSSD.isChecked()){
             Toast.makeText(getApplicationContext(), "SSD Selected", Toast.LENGTH_SHORT).show();
@@ -171,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Implementing onManipulateChecked method.
     public void onManipulateChecked(View view) {
 
         if(rdCoolingMat.isChecked()){
@@ -227,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        // Total cost and tax calculation.
         Double tax = cost * 0.13;
         Double totalCost = tax + cost;
         String invoice = "Customer : " + txtNameOfPerson.getText().toString() + "\nProvince : " + actvProvinceName.getText().toString() + "\nDate Of Purchase : " +

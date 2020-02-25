@@ -104,7 +104,6 @@
         android:layout_marginTop="28dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTypeOfComputer">
 
@@ -119,14 +118,14 @@
                 android:layout_margin="10dp">
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/imgLenovoDesktop"
                     android:layout_width="wrap_content"
                     android:layout_height="117dp"
                     android:layout_margin="10dp"
                     app:srcCompat="@drawable/lenovolaptop1" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/txtLenovoDesktop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="110dp"
@@ -140,14 +139,14 @@
                 android:layout_margin="10dp">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/imgDellDesktop"
                     android:layout_width="match_parent"
                     android:layout_height="117dp"
                     android:layout_margin="10dp"
                     app:srcCompat="@drawable/hplaptop" />
 
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/txtDellDesktop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="120dp"
@@ -162,14 +161,14 @@
                 android:layout_margin="10dp">
 
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/imgHPDesktop"
                     android:layout_width="match_parent"
                     android:layout_height="117dp"
                     android:layout_margin="10dp"
                     app:srcCompat="@drawable/delllaptop" />
 
                 <TextView
-                    android:id="@+id/textView3"
+                    android:id="@+id/txtHpDesktop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="120dp"
@@ -185,9 +184,8 @@
         android:layout_width="182dp"
         android:layout_height="281dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintBottom_toTopOf="@+id/txtBrandSelect"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTypeOfComputer">
 
@@ -202,14 +200,14 @@
                 android:layout_margin="10dp">
 
                 <ImageView
-                    android:id="@+id/imageView4"
+                    android:id="@+id/imgLenovoLaptop"
                     android:layout_width="wrap_content"
                     android:layout_height="117dp"
                     android:layout_margin="10dp"
                     app:srcCompat="@drawable/lenovodesktop" />
 
                 <TextView
-                    android:id="@+id/textView5"
+                    android:id="@+id/txtLenovoLaptop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="120dp"
@@ -224,14 +222,14 @@
                 android:layout_margin="10dp">
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/imgDellLaptop"
                     android:layout_width="wrap_content"
                     android:layout_height="117dp"
                     android:layout_margin="10dp"
                     app:srcCompat="@drawable/delldesktop" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/txtDellLaptop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="120dp"
@@ -245,13 +243,13 @@
                 android:layout_margin="10dp">
 
                 <ImageView
-                    android:id="@+id/imageView6"
+                    android:id="@+id/imgHPLaptop"
                     android:layout_width="wrap_content"
                     android:layout_height="117dp"
                     app:srcCompat="@drawable/hpdesktop" />
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/txtHPLaptop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="120dp"
@@ -264,7 +262,7 @@
     </ScrollView>
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/txtBrandSelect"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
@@ -296,7 +294,7 @@
         android:text="Additional Add Ons:"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/txtBrandSelect" />
 
     <CheckBox
         android:id="@+id/check_SSD"
