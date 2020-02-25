@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     DatePickerDialog dobPicker;
     EditText editDate;
     RadioButton rdDesk, rdLap, rdCoolingMat, rdUsbC, rdLaptopStand, rdWebCam, rdHardDrive;
+    RadioGroup rdLaptopGroup, rdDesktopGroup;
     Spinner spnBrand;
     CheckBox chkSSD, chkPrinter;
     Button compute;
@@ -124,6 +126,9 @@ public class MainActivity extends AppCompatActivity {
         rdWebCam = (RadioButton)findViewById(R.id.rd_web_cam);
         rdHardDrive = (RadioButton)findViewById(R.id.rd_hard_drive);
 
+        rdLaptopGroup = (RadioGroup) findViewById(R.id.rd_laptop_type_of_peripherals);
+        rdDesktopGroup = (RadioGroup)findViewById(R.id.rd_computer_type_of_peripheral);
+
         // Setting up the textfields to get the selected data.
         txtNameOfPerson = (TextView)findViewById(R.id.txtName);
         actvProvinceName = (AutoCompleteTextView)findViewById(R.id.provinces_list);
@@ -133,13 +138,25 @@ public class MainActivity extends AppCompatActivity {
 
     public void RdComputerClicked(View view){
         computerSelected = "Computer Selected";
+
         if(rdLap.isChecked()) {
             computerSelected = "Laptop";
             svLaptop.setVisibility(View.VISIBLE);
+            svDesktop.setVisibility(View.INVISIBLE);
+            rdLaptopGroup.setVisibility(View.VISIBLE);
+            rdDesktopGroup.setVisibility(View.INVISIBLE);
+
         }
+
         if(rdDesk.isChecked()){
             computerSelected = "Desktop";
             svDesktop.setVisibility(View.VISIBLE);
+            svLaptop.setVisibility(View.INVISIBLE);
+
+            rdLaptopGroup.setVisibility(View.INVISIBLE);
+            rdDesktopGroup.setVisibility(View.VISIBLE);
+
+
         }
 
         Toast.makeText(getApplicationContext(), computerSelected, Toast.LENGTH_SHORT).show();
